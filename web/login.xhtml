@@ -1,25 +1,43 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+
+
+
+    <ui:composition template="./mainframe.xhtml"  xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+
+
+        <ui:define name="content" >
+            <h:form>
+                <span class="ui-float-label">
+                    <p:inputText id="id" required="true" requiredMessage="CAMPO OBLIGATORIO"/>
+                    <p:outputLabel for="@previous" value="Identificacion" />
+                    <p:message for="id" display="icon"/>
+                    <p:growl for="id" showDetail="true" showSummary="true"></p:growl>
+                </span>
+                <br/><br/>
+                <span class="ui-float-label">
+                    <p:password id="password" required="true" requiredMessage="CAMPO OBLIGATORIO"/>
+                    <p:outputLabel for="@previous" value="Contraseña"/>
+                     <p:message for="password" display="icon"/>
+                </span>
+                <br/><br/>
+                
+
+                <p:commandButton value="Ingresar" type="submit" ajax="false"></p:commandButton>
+               
+            </h:form>
+            <h:form>
+                    <br/><br/>
+                 <p:commandLink action="cliente.xhtml" value="Crear Cuenta Nueva"></p:commandLink>
+                
+            </h:form>
+            
+        </ui:define>
+
+    </ui:composition>
 
 
 
-        <ui:composition template="./mainframe.xhtml">
-
-            <ui:define name="content">
-              <h5>Nombre de Usuario</h5>
-    <span class="ui-float-label">
-       <p:inputText id="float-input" value="#{inputTextView.text}"/>
-       <p:outputLabel for="@previous" value="Identificacion"/>
-   </span>
-              
-            </ui:define>
-
-        </ui:composition>
-
-   
-</html>
