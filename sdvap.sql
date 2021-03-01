@@ -223,8 +223,13 @@ insert into Cliente([id],[nombre],[sNombre],[apellido],[sApellido],[correo],[tel
 values (@Id,@Nombre,@sNombre,@Apellido,@sApellido,@correo,@Telefono)
 end;
 go
-
-
+--selecionar todos
+create procedure [dbo].[SelecionarTodosClientes]
+as 
+begin 
+select *from Cliente
+end;
+go
 
 ----Store procedure Usuario
 --insert
@@ -240,6 +245,13 @@ end;
 go
 
 
+--Selecionar todos
+create procedure [dbo].[SelecionarTodosUsuarios]
+as 
+begin 
+select *from usuario
+end;
+go
 
 
 
