@@ -48,7 +48,7 @@ public class BeanCliente implements Serializable {
     
     
     public LinkedList <SelectItem> listaTipoUsuario() throws SNMPExceptions{
-    LinkedList lista=new LinkedList();
+    LinkedList<SelectItem> lista=new LinkedList();
         
         for (TipoUsuario o : UsuarioDLL.listaTipoUsuario()) {
             lista.add(new SelectItem(o.getDescripcion()));
