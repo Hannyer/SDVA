@@ -11,4 +11,14 @@ package DAO;
  */
 public class UsuarioDLL {
     
+    
+    
+ public void insertarUsuario(Usuario usuario){
+ 
+ 
+ 
+ }
+    
+    
+    
 }
