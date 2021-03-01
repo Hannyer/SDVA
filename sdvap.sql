@@ -215,19 +215,27 @@ create Procedure [dbo].[InsertarCliente]
 @Apellido varchar(50),
 @sApellido nvarchar(50),
 @correo nvarchar(320),
-@Telefono int
+@Telefono int,
+@contrasenna nvarchar(20),
+@tipoUsuario int
 as
 
 begin
+insert into usuario ([id],[contrasenna],[tipoUsuario]) values (@id,encryptbypassphrase('password',@contrasenna),@TipoUsuario)
 insert into Cliente([id],[nombre],[sNombre],[apellido],[sApellido],[correo],[telefono] )
 values (@Id,@Nombre,@sNombre,@Apellido,@sApellido,@correo,@Telefono)
+
 end;
 go
---selecionar todos
+
+
+
+
+--selecionar todos clientes
 create procedure [dbo].[SelecionarTodosClientes]
 as 
 begin 
-select *from Cliente
+select *from Cliente inner join Usuario on cliente.id=usuario.id
 end;
 go
 
@@ -245,7 +253,7 @@ end;
 go
 
 
---Selecionar todos
+--Selecionar todos USuarios
 create procedure [dbo].[SelecionarTodosUsuarios]
 as 
 begin 
@@ -254,7 +262,16 @@ end;
 go
 
 
+exec SeleccionarTiposUsuario
 
+---Store tipoUsuarios
+create procedure [dbo].[SeleccionarTiposUsuario]
+as
+
+begin
+select *from tipoUsuario
+end;
+go
 
 
 

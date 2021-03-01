@@ -27,6 +27,19 @@ public class Cliente extends Usuario {
         this.correo = correo;
         this.telefono = telefono;
     }
+    
+    public Cliente(){
+       super();
+        this.identificacion=0;
+        this.nombre = "";
+        this.sNombre = "";
+        this.apellido = "";
+        this.sApellido = "";
+        this.correo = "";
+        this.telefono = 0;
+    
+    
+    }
 
     public long getIdentificacion() {
         return identificacion;
