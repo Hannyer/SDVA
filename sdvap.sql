@@ -86,7 +86,7 @@ telefono int
 --creacion de tabla usuario--
 create table usuario(
 id bigint primary key,
-contrasenna varbinary(20),
+contrasenna varbinary(max),
 estado bit default(0),
 tipoUsuario int
 )
@@ -235,11 +235,11 @@ go
 --insert
 create procedure [dbo].[InsertarUsuario]
 @id bigint,
-@Contrasenna varbinary(20),
+@Contrasenna varchar(20),
 @TipoUsuario int
 as
 begin
-insert into Usuario ([id],[contrasenna],[tipoUsuario]) values (@id,@contrasenna,@TipoUsuario)
+insert into Usuario ([id],[contrasenna],[tipoUsuario]) values (@id,encryptbypassphrase('password',@contrasenna),@TipoUsuario)
 end;
 
 go
@@ -15694,4 +15694,6 @@ INSERT [dbo].[Barrio] ([Cod_Provincia], [Cod_Canton], [Cod_Distrito], [Cod_Barri
 
 
 
+
+exec InsertarUsuario 456,'dfgdfg',3
 
